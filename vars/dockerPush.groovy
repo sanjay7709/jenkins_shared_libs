@@ -16,10 +16,10 @@ withCredentials([usernamePassword(
     credentialsId: 'USER', 
     passwordVariable: 'ACR_PASSWORD', 
     usernameVariable: 'ACR_ID')]) {
-        
+
     sh "docker login ${ACR_LOGINSERVER} -u ${ACR_ID} -p ${ACR_PASSWORD}"
 }
 
-    sh "docker push ${hubuser}/${project} ${ACR_LOGINSERVER}/${project}:${ImageTag}"
-    sh  "docker push ${hubuser}/${project} ${ACR_LOGINSERVER}/${project}:latest"
+    sh "docker push ${ACR_LOGINSERVER}/${project}:${ImageTag}"
+    sh  "docker push ${ACR_LOGINSERVER}/${project}:latest "
 }

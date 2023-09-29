@@ -9,6 +9,6 @@
 def call(String project, String hubuser, String ACR_LOGINSERVER, String ImageTag){
     sh """
         docker rmi ${ACR_LOGINSERVER}/${project}:${ImageTag}
-        docker rmi${ACR_LOGINSERVER}/${project}:latest
+        docker rmi ${ACR_LOGINSERVER}/${project}:latest
     """
 }
